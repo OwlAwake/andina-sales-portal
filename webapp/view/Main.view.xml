@@ -1,0 +1,24 @@
+<mvc:View controllerName="andina.andinasalesportal.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <VBox id="mainBox" class="sapUiMediumMargin">
+            <Input id="salespersonNameInput"
+                placeholder="{i18n>namePlaceholder}"
+                class="sapUiSmallMarginBottom" />
+
+            <HBox id="buttonBox" class="sapUiSmallMarginBottom">
+                <Button id="signInButton"
+                    text="{i18n>signInButton}"
+                    type="Emphasized"
+                    press=".onWelcome"
+                    class="sapUiSmallMarginEnd" />
+                <Button id="showDateTimeButton"
+                    text="{i18n>showDateTimeButton}"
+                    press=".onShowDateTime" />
+            </HBox>
+
+            <Text id="messageText" />
+        </VBox>
+    </Page>
+</mvc:View>
