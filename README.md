@@ -56,3 +56,20 @@ detail screens built in the following weeks.
 | **UI5 version** | 1.154.0 |
 | **TypeScript** | No |
 | **ESLint** | Yes ([rules](https://www.npmjs.com/package/@sap-ux/eslint-plugin-fiori-tools#rules)) |
+
+## Troubleshooting (Week 1)
+
+**1. Empty control ID with `flexEnabled`**
+- **Error:** `The "Button" class can't have an empty ID attribute when flexEnabled is "true" in manifest.json.`
+- **Cause:** with `flexEnabled: true`, every control needs an explicit `id`, and my `Button` had none.
+- **Fix:** added `id="signInButton"`. Rule from then on: every new control gets an `id`.
+
+**2. Variable name mismatch in the controller**
+- **Error:** `ReferenceError: local is not defined` (nothing was shown on screen).
+- **Cause:** I declared `const time = ...` but called `setText(local)`. A variable must be used with the exact name it was declared with.
+- **Fix:** renamed the variable to `dateTime` and used the same name in `setText`. I also renamed the handler to `onShowDateTime` and updated the `press` attribute in the view to match.
+
+**3. `git push` seemed frozen in SAP Business Application Studio**
+- **Symptom:** the terminal stayed idle after `git push -u origin main` and did not accept input.
+- **Cause:** the credentials prompt did not appear in the terminal. BAS shows it in an input box at the top of the editor.
+- **Fix:** entered my GitHub username and a personal access token (scope `repo`) in that box. The token is never stored in the repo.
